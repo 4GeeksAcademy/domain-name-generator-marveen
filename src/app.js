@@ -9,7 +9,7 @@ window.onload = function() {
   //write your code here
 
 
-  // Generator de 
+  // Generate domains 
 function generateDomains(arr1, arr2, arr3) {
   const domains = [];
 
@@ -27,9 +27,6 @@ function generateDomains(arr1, arr2, arr3) {
 let pronoun = ['the', 'our', 'your'];
 let adj = ['great', 'big', 'best', 'awesome'];
 let noun = ['jogger', 'racoon', 'coder', 'class', 'work'];
-
-const domainList = generateDomains(pronoun, adj, noun);
-
 
 
 
