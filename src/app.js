@@ -7,6 +7,9 @@ import "./assets/img/4geeks.ico";
 
 window.onload = function() {
   //write your code here
+
+
+  // Generator de 
 function generateDomains(arr1, arr2, arr3) {
   const domains = [];
 
@@ -27,18 +30,46 @@ let noun = ['jogger', 'racoon', 'coder', 'class', 'work'];
 
 const domainList = generateDomains(pronoun, adj, noun);
 
-// Select the container
-const container = document.getElementById("domains");
 
-// Insert <p> elements dynamically
-domainList.forEach(domain => {
-  const p = document.createElement("p");
-  p.textContent = domain;
-  container.appendChild(p);
-  p.className= "mx-1 col-sm-12 col-md-4 col-xl-2 fs-4 btn btn-primary object-fit-fill text-truncate"
-});
 
+
+
+
+
+const buttonContainer = document.getElementById("domains");
+const loadMoreBtn = document.getElementById("loadMoreBtn");
+
+const domains = generateDomains(pronoun, adj, noun);
+
+const batchSize = 6;
+let currentIndex = 0;
+
+// Function that renders next batch
+function renderButtons() {
+  const nextItems = domains.slice(currentIndex, currentIndex + batchSize);
+
+  nextItems.forEach(domain => {
+    const btn = document.createElement("button");
+    btn.textContent = domain;
+    buttonContainer.appendChild(btn);
+    btn.className= "col-sm-12 col-md-4 fs-5 btn btn-primary text-truncate border border-2 border-white"
+  });
+
+  currentIndex += batchSize;
+
+  // If no more items left → hide button
+  if (currentIndex >= domains.length) {
+    loadMoreBtn.style.display = "none";
+  }
 }
+
+// Initial render (first 9)
+renderButtons();
+
+// Click for more
+loadMoreBtn.addEventListener("click", renderButtons);
+
+ }
 
 
 
