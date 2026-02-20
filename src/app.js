@@ -49,7 +49,7 @@ function renderButtons() {
     const btn = document.createElement("button");
     btn.textContent = domain;
     buttonContainer.appendChild(btn);
-    btn.className= "col-sm-12 col-md-4 fs-5 btn btn-primary text-truncate border border-2 border-white"
+    btn.className= "col-12 col-sm-12 col-md-4 fs-5 btn btn-primary text-truncate border border-2 border-white"
   });
 
   currentIndex += batchSize;
